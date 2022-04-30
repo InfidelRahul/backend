@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Auth\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ use App\Http\Controllers\User\UserController;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 //Auth request
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', [UserController::class,'show'])->name('user');

@@ -9,7 +9,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 
 
-class RegisterController extends Controller
+class RegistrationController extends Controller
 {
     public function store(Request $request)
     {
@@ -26,6 +26,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->$user->createToken($request->device_name)->plainTextToken;
+        return $user->createToken($request->device_name)->plainTextToken;
     }
 }
